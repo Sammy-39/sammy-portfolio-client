@@ -1,6 +1,7 @@
 import React from 'react';
 
 import careerJson from './career.json';
+import myResume from './assets/sammy-resume.pdf'
 
 
 const CareerEach = (props) => {
@@ -31,7 +32,7 @@ const Career = () => {
     <section className="exp">
       <div className="career-flex">
         <h1>Career</h1>
-        <h1><a href={process.env.PUBLIC_URL + 'public/assets/sammy-resume.pdf'} download="madasamy's resume">Get My Resume</a></h1>
+        <h1><a href={myResume} download="madasamy's resume">Get My Resume</a></h1>
       </div>
           <div className="careers">
             {careerJson.map(career  => <CareerEach careerObj={career} key={career.role} />)}
