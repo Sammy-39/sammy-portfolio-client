@@ -211,6 +211,16 @@ p{
   padding:0 calc(120 /1438 * 100vw);
 }
 
+.projects-area > p{
+  margin-top: 35px;
+  text-align: center;
+}
+.loader{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
 .project h1 {
   color:rgba(255,255,255,0.4);
   font-family:"Roboto";
@@ -528,15 +538,6 @@ li p {
   .project {
     flex-direction:row;
     align-items:center;
-  }
-  .projects-area > p{
-    margin-top: 40px;
-    text-align: center;
-  }
-  .projects-area > .loader{
-    margin-top: 45px;
-    display: flex;
-    justify-content: center;
   }
   .images-part, .project-desc {
     width:calc(50vw - 3rem);
