@@ -1,5 +1,7 @@
 import React, {useEffect,useState} from 'react';
 
+import Preloader from './preloader'
+
 const Project = ({project}) => {
   return (
     <div className="project">
@@ -35,22 +37,27 @@ const ProjectSection = () => {
   
   const [filtProjectsDetails,setFiltProjectsDetails] = useState([])
   const [projectsDetails,setProjectsDetails] = useState([])
-  
+  const [showLoader, setShowLoader] = useState(false)
+  const [err,setErr] = useState('')
 
   const getProjectsDetails = async () =>{
     try{
+      setShowLoader(true)
+      setErr('')
       const res = await fetch('https://sammy-portfolio-server.herokuapp.com/api/projects')
       const resData = await res.json()
+      setShowLoader(false)
       if(res.status===200){
         setProjectsDetails(resData.filter(project=>project.category==="fullstack"))
         setFiltProjectsDetails(resData)
       }
       else{
-        console.log(resData.message)
+        setErr(resData.message)
       }
     }
     catch(err){
-      console.log(err)
+      setShowLoader(false)
+      setErr('Connection timeout!')
     }
   }
 
@@ -71,7 +78,9 @@ const ProjectSection = () => {
         <button className="be" data-aos="fade-left" onClick={()=>filterProjects('backend')}>Backend</button>
         <button className="hcj" data-aos="fade-right" onClick={()=>filterProjects('html-css-js')}>HTML-JS</button>   
       </div>
+      {showLoader && <Preloader />}
       {projectsDetails.map((project,idx) => <Project key={idx} project={project}/>)}
+      <p> {err} </p>
     </div>
   )
 }

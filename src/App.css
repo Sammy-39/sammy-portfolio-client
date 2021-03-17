@@ -529,6 +529,15 @@ li p {
     flex-direction:row;
     align-items:center;
   }
+  .projects-area > p{
+    margin-top: 40px;
+    text-align: center;
+  }
+  .projects-area > .loader{
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+  }
   .images-part, .project-desc {
     width:calc(50vw - 3rem);
   }
