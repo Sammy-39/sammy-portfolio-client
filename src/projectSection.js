@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useRef,useState} from 'react';
 
 import Preloader from './preloader'
 
@@ -34,6 +34,8 @@ const Project = ({project}) => {
 
 
 const ProjectSection = () => {
+
+  const buttonsConRef = useRef(null) 
   
   const [filtProjectsDetails,setFiltProjectsDetails] = useState([])
   const [projectsDetails,setProjectsDetails] = useState([])
@@ -61,7 +63,12 @@ const ProjectSection = () => {
     }
   }
 
-  const filterProjects = (category) =>{
+  const filterProjects = (e,category) =>{
+    var btnElemsList =  [...buttonsConRef.current?.children]
+    btnElemsList.forEach((btnElem)=>{
+      if(btnElem===e.target){ btnElem.classList.add("active") }
+      else{ btnElem.classList.remove("active") }
+    })
     setProjectsDetails(filtProjectsDetails.filter(project=>project.category===category))
   }
 
@@ -72,11 +79,11 @@ const ProjectSection = () => {
   return (
     <div className="projects-area" data-aos="fade-up">
       <h1>Projects</h1>
-      <div className="projects-category">
-        <button className="fs" data-aos="fade-left" onClick={()=>filterProjects('fullstack')}>Fullstack</button>
-        <button className="fe" data-aos="fade-right" onClick={()=>filterProjects('frontend')}>Frontend</button>
-        <button className="be" data-aos="fade-left" onClick={()=>filterProjects('backend')}>Backend</button>
-        <button className="hcj" data-aos="fade-right" onClick={()=>filterProjects('html-css-js')}>HTML-JS</button>   
+      <div className="projects-category" ref={buttonsConRef}>
+        <button className="fs active" data-aos="fade-left" onClick={(e)=>filterProjects(e,'fullstack')}>Fullstack</button>
+        <button className="fe" data-aos="fade-right" onClick={(e)=>filterProjects(e,'frontend')}>Frontend</button>
+        <button className="be" data-aos="fade-left" onClick={(e)=>filterProjects(e,'backend')}>Backend</button>
+        <button className="hcj" data-aos="fade-right" onClick={(e)=>filterProjects(e,'html-css-js')}>HTML-JS</button>   
       </div>
       {showLoader && <Preloader />}
       {projectsDetails.map((project,idx) => <Project key={idx} project={project}/>)}

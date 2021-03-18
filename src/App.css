@@ -191,6 +191,9 @@ p{
   margin-right: 20px;
   margin-bottom: 25px;
 }
+.active{
+  outline-color: cyan;
+}
 .project div.image {
   --w: calc(50vw - 2rem);
   width:var(--w);
