@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@500;800&family=News+Cycle:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
 :root {
   --white:#efefef;
   --dark:rgba(0,0,20,0.9);	
   --green:rgb(90,169,130);
 }
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@500;800&family=News+Cycle:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 
 * {
   padding: 0;
@@ -93,6 +94,7 @@ nav {
   height:40px;
   justify-content:center;
   align-items:flex-end;
+  cursor: pointer;
 }
 .menu div {
   width:24px;
