@@ -82,6 +82,7 @@ const ProjectSection = () => {
       <div className="projects-category" ref={buttonsConRef}>
         <button className="fs active" data-aos="fade-left" onClick={(e)=>filterProjects(e,'fullstack')}>Fullstack</button>
         <button className="fe" data-aos="fade-right" onClick={(e)=>filterProjects(e,'frontend')}>Frontend</button>
+        <button className="fe" data-aos="fade-right" onClick={(e)=>filterProjects(e,'npm-packages')}>NPM Packages</button>
         <button className="be" data-aos="fade-left" onClick={(e)=>filterProjects(e,'backend')}>Backend</button>
         <button className="hcj" data-aos="fade-right" onClick={(e)=>filterProjects(e,'html-css-js')}>HTML-JS</button>   
       </div>
